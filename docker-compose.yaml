@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    ports:
+      - 3306:3306
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_USER: emmanuel
+      MYSQL_PASSWORD: url_2023
+      MYSQL_DATABASE: flask
+
+  flask_app:
+    container_name: flask-app
+    build: .
+    depends_on:
+      - db
+    ports:
+      - 80:80
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: emmanuel
+      DB_PASSWORD: url_2023
+      DB_NAME: flask
