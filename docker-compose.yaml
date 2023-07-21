@@ -14,7 +14,7 @@ services:
 
   flask_app:
     container_name: flask-app
-    build: .
+    image: url_shortener_img
     depends_on:
       - db
     ports:
@@ -25,3 +25,4 @@ services:
       DB_USER: emmanuel
       DB_PASSWORD: url_2023
       DB_NAME: flask
+    restart: on-failure
