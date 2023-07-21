@@ -1,4 +1,4 @@
-name: ci
+name: Build and Push Docker Image on Change in code
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     - name: Build and push
       uses: docker/build-push-action@v4
-#       with:
-#         context: .
-#         push: true
-#         tags: user/app:latest
+       with:
+         context: .
+         push: true
+         tags: user/app:latest
