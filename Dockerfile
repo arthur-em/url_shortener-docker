@@ -34,7 +34,6 @@ EXPOSE 80
 # make our entrypoint.sh executable
 RUN chmod +x entrypoint.sh
 
-
 # execute our entrypoint.sh file
 CMD ["./entrypoint.sh"]
 
