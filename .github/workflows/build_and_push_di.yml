@@ -25,7 +25,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: arthurem/url_shorter_docker:latest
+          tags: arthurem/url_shorter:latest
 
       # - name: Build & push Docker image
       #   uses: mr-smithers-excellent/docker-build-push@v6
