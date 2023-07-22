@@ -24,8 +24,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          load: true
-          tags: arthurem/url_shorter:latest
+          push: true
+          tags: arthurem/url_shorter_docker:latest
 
       # - name: Build & push Docker image
       #   uses: mr-smithers-excellent/docker-build-push@v6
