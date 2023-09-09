@@ -11,6 +11,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}   # checkout the correct branch name
+          fetch-depth: 0                # fetch the whole repo history
+
+      - name: Git Version
+        id: version
+        uses: codacy/git-version@2.7.1
+
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
       - name: Set up Docker Buildx
@@ -25,7 +33,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: arthurem/url_shortener:latest
+          tags: arthurem/url_shortener:${{ steps.version.outputs.version }}
 
       # - name: Build & push Docker image
       #   uses: mr-smithers-excellent/docker-build-push@v6
